@@ -19,6 +19,13 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['simple-auth'] = {
+      store: 'simple-auth-session-store:local-storage',
+      authorizer: 'authorizer:custom',
+      crossOriginWhitelist: ['http://localhost:4000/'],
+      routeAfterAuthentication: '/protected'
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
