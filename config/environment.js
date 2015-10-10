@@ -13,17 +13,20 @@ module.exports = function(environment) {
       }
     },
 
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self' http://localhost:49152",
+      'font-src': "'self'",
+      'connect-src': "'self' * http://localhost:49152",
+      'img-src': "'self' *" ,
+      'style-src': "'self' *",
+      'media-src': "'self'"
+    },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
     }
-  };
-
-  ENV['simple-auth'] = {
-      store: 'simple-auth-session-store:local-storage',
-      authorizer: 'authorizer:custom',
-      crossOriginWhitelist: ['http://localhost:4000/'],
-      routeAfterAuthentication: '/protected'
   };
 
   if (environment === 'development') {
