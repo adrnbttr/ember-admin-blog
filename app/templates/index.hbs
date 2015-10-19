@@ -1,0 +1,5 @@
+{{#each model as |post|}}
+   {{#index-post title=post.title id=post.id}}
+     {{post.content}}
+   {{/index-post}}
+{{/each}}
