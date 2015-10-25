@@ -1,5 +1,92 @@
-{{#each model as |post|}}
-   {{#index-post title=post.title id=post.id}}
-     {{post.content}}
-   {{/index-post}}
-{{/each}}
+<div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed sidebar-mini">
+
+  <nav id="sidebar">
+      <div id="sidebar-scroll">
+          <div class="sidebar-content">
+              <div class="side-header side-content bg-white-op">
+                  <button class="btn btn-link text-gray pull-right hidden-md hidden-lg" type="button" data-toggle="layout" data-action="sidebar_close">
+                      <i class="fa fa-times"></i>
+                  </button>
+                  <a class="h5 text-white" href="">
+                      <i class="fa fa-circle-o-notch text-primary"></i> <span class="h5 font-w400 sidebar-mini-hide"> board</span>
+                  </a>
+              </div>
+              <div class="side-content">
+                  <ul class="nav-main">
+                      <li>
+                          {{#link-to "index.posts" }}<i class="fa fa-file-text"></i> <span class="sidebar-mini-hide">Posts</span>{{/link-to}}
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </nav>
+
+  <header id="header-navbar" class="content-mini content-mini-full">
+      <ul class="nav-header pull-right">
+          <li>
+              <div class="btn-group">
+                  <button class="btn btn-default btn-image dropdown-toggle" data-toggle="dropdown" type="button">
+
+                      <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-right">
+                      <li class="dropdown-header">Profile</li>
+                      <li>
+                          <a tabindex="-1" href="">
+                              <i class="si si-envelope-open pull-right"></i>
+                              <span class="badge badge-primary pull-right">3</span>Inbox
+                          </a>
+                      </li>
+                      <li>
+                          <a tabindex="-1" href="">
+                              <i class="si si-user pull-right"></i>
+                              <span class="badge badge-success pull-right">1</span>Profile
+                          </a>
+                      </li>
+                      <li>
+                          <a tabindex="-1" href="javascript:void(0)">
+                              <i class="si si-settings pull-right"></i>Settings
+                          </a>
+                      </li>
+                      <li class="divider"></li>
+                      <li class="dropdown-header">Actions</li>
+                      <li>
+                          <a tabindex="-1" href="">
+                              <i class="si si-lock pull-right"></i>Lock Account
+                          </a>
+                      </li>
+                      <li>
+                          <a tabindex="-1" href="">
+                              <i class="si si-logout pull-right"></i>Log out
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </li>
+      </ul>
+
+      <ul class="nav-header pull-left">
+          <li class="js-header-search header-search">
+              <form class="form-horizontal" action="" method="post">
+                  <div class="form-material form-material-primary input-group remove-margin-t remove-margin-b">
+                      <input class="form-control" type="text" id="base-material-text" name="base-material-text" placeholder="Search..">
+                      <span class="input-group-addon"><i class="si si-magnifier"></i></span>
+                  </div>
+              </form>
+          </li>
+      </ul>
+  </header>
+
+  <main id="main-container">
+    {{outlet}}
+  </main>
+  <footer id="page-footer" class="content-mini content-mini-full font-s12 bg-gray-lighter clearfix">
+      <div class="pull-right">
+          Crafted with <i class="fa fa-heart text-city"></i> by <a class="font-w600" href="" target="_blank">Adrien Bouttier</a>
+      </div>
+      <div class="pull-left">
+          <a class="font-w600" href="javascript:void(0)" target="_blank">Dashboard</a> &copy; <span class="js-year-copy"></span>
+      </div>
+  </footer>
+</div>

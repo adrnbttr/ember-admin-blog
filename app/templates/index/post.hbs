@@ -1,0 +1,45 @@
+<div class="content bg-gray-lighter">
+    <div class="row items-push">
+        <div class="col-sm-7">
+            <h1 class="page-heading">
+                Post
+            </h1>
+        </div>
+        <div class="col-sm-5 text-right hidden-xs">
+            <ol class="breadcrumb push-10-t">
+                <li>Board</li>
+                <li>
+                    {{#link-to "index.posts" class="link-effect" }}
+                        Posts
+                    {{/link-to}}
+                </li>
+                <li>
+                    Post
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="block">
+        <div class="block-header bg-gray-lighter">
+            <ul class="block-options">
+                <li>
+                    <button class="btn btn-default push-5-b" type="button">
+                        {{#link-to "index.posts" }}
+                            <i class="fa fa-arrow-left text-primary push-5-l push-5-r"></i> <span class="hidden-xs">Posts</span>
+                        {{/link-to}}
+                    </button>
+                </li>
+            </ul>
+            <div class="block-title text-normal">
+                {{model.title}}
+            </div>
+        </div>
+        <div class="block-content">
+            <p class="push-30"></p>
+            {{model.content}}
+        </div>
+    </div>
+</div>
