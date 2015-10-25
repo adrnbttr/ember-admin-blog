@@ -6,8 +6,11 @@ module.exports = function(defaults) {
     
   });
 
-  app.import('bower_components/font-awesome/fonts/fontawesome-webfont.ttf');
   app.import('bower_components/font-awesome/css/font-awesome.css');
+  app.import('bower_components/font-awesome/fonts/fontawesome-webfont.ttf', {
+    destDir: 'fonts'
+  });
+  
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
