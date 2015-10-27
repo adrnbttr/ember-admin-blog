@@ -2,27 +2,49 @@ import Ember from 'ember';
 import config from '../config/environment';
 
 export default Ember.Service.extend({
-  token: localStorage.getItem('blog.auth.token'),
+  token: null,
   tokenEndpoint: config.apiUrl + '/authenticate',
-  userIsLoggedIn: !!localStorage.getItem('blog.auth.token'),
+
+  init() {
+    this._super(...arguments);
+    this.set('token', localStorage.getItem('blog.auth.token'));
+  },
+
+  userIsLoggedIn: Ember.computed('token', function() {
+    if (this.get('token') !== "null") {
+      return true;  
+    }
+
+    return false;
+  }),
 
   accessToken: Ember.computed('token', function() {
-    return JSON.parse(this.get('token')).access_token.token;
+    if (this.get('token') !== "null") {
+      return JSON.parse(this.get('token')).access_token.token;  
+    }
+
+    return null;
   }),
 
   user: Ember.computed('token', function() {
     return JSON.parse(this.get('token')).user;
   }),
 
-  empty() {
+  logout() {
     localStorage.setItem('blog.auth.token', null);
+    this.set('token', null);
+  },
+
+  addToken(token) {
+    this.set('token', JSON.stringify(token));
+    localStorage.setItem('blog.auth.token', JSON.stringify(token));
   },
 
   authenticate(options) {
-    var url = this.tokenEndpoint;
+    var that = this;
     var request = new Ember.RSVP.Promise((resolve, reject) => {
         Ember.$.ajax({
-            url: url,
+            url: that.tokenEndpoint,
             type: 'POST',
             data: JSON.stringify({
                 username: options.identification,
@@ -36,13 +58,13 @@ export default Ember.Service.extend({
             });
         }, function() {
             Ember.run(function() {
-                reject(new Error('getToken: `' + url + '` failed with status: [' + this.status + ']'));
+                reject(new Error('getToken: `' + that.tokenEndpoint + '` failed with status: [' + this.status + ']'));
             });
         });
     });
 
     request.then(function(response) {
-      localStorage.setItem('blog.auth.token', JSON.stringify(response));
+      that.addToken(response);
     }, function(error) {
       console.log(error);
       return error;
