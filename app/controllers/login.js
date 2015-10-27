@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   authenticate: Ember.inject.service('authentication'),
+  previousTransition: null,
 
   actions: {
     authenticate() {
@@ -13,7 +14,6 @@ export default Ember.Controller.extend({
             _this.set('previousTransition', null);
             previousTransition.retry();
           } else {
-            // Default back to homepage
             _this.transitionToRoute('index');
           }
         }).catch((message) => {
