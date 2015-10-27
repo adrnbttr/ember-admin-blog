@@ -1,0 +1,23 @@
+<ul class="nav-header pull-right">
+  <li>
+      <div class="btn-group {{if isExpanded "open" ""}}">
+          <button class="btn btn-default dropdown-toggle" {{action "toggleIsExpanded"}} type="button">
+          	<i class="fa fa-user"></i>
+              <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right">
+              <li>
+                  <a tabindex="-1" href="javascript:void(0)">
+                      <i class="fa fa-cog pull-right"></i>Settings
+                  </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                  <a {{action "logout"}}>
+                      <i class="fa fa-sign-out pull-right"></i>Log out
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </li>
+</ul>
