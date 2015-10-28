@@ -112,6 +112,13 @@ textarea {
   font: inherit;
   color: inherit;
 }
+textarea {
+  border-color: #FFFFFF;
+}
+textarea:focus {
+  outline: none !important;
+  border-color: #FFFFFF;
+}
 button {
   overflow: visible;
 }
