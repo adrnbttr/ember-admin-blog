@@ -2,7 +2,7 @@
     <div class="row items-push">
         <div class="col-sm-7">
             <h1 class="page-heading">
-                Post
+                Post <small> : {{model.title}}</small>
             </h1>
         </div>
         <div class="col-sm-5 text-right hidden-xs">
@@ -22,24 +22,29 @@
 </div>
 
 <div class="content">
-    <div class="block">
-        <div class="block-header bg-gray-lighter">
-            <ul class="block-options">
-                <li>
-                    <button class="btn btn-default push-5-b" type="button">
-                        {{#link-to "index.posts" }}
-                            <i class="fa fa-arrow-left text-primary push-5-l push-5-r"></i> Posts
-                        {{/link-to}}
-                    </button>
-                </li>
-            </ul>
-            <div class="block-title text-normal">
-                {{model.title}}
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="block">
+                <div class="block-header bg-gray-lighter">
+                    <h3 class="block-title"><i class="fa fa-newspaper-o"></i> View</h3>
+                </div>
+                <div class="block-content">
+                    {{mark-down model.content}}
+                </div>
             </div>
         </div>
-        <div class="block-content">
-            <p class="push-30"></p>
-            {{model.content}}
+        <div class="col-lg-6">
+            <div class="block">
+                <div class="block-header bg-gray-lighter">
+                    <h3 class="block-title"><i class="fa fa-fw fa-briefcase"></i> Edit</h3>
+                </div>
+                <div class="block-content">
+                    {{textarea value=model.content cols="80" rows="6"}}
+                </div>
+            </div>
+            <button {{action "save"}}>
+                Save
+            </button>
         </div>
     </div>
 </div>
