@@ -5,3 +5,4 @@ export default Ember.Route.extend({
     return this.store.findRecord('post', params.post_id);
   }
 });
+

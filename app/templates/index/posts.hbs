@@ -11,6 +11,9 @@
 
 <div class="content">
     <div class="block">
+        <div class="block-header bg-gray-lighter">
+            {{#link-to "index.post.add" tagName="button" class="btn btn-sm btn-success"}} <i class="fa fa-plus"></i> Add{{/link-to}}
+        </div>
         <div class="block-content">
             <p class="push-30"></p>
             <div class="table-responsive">
@@ -27,7 +30,7 @@
                              <td class="font-w600">{{post.title}}</td>
                              <td>
                                  <div class="btn-group">
-                                     {{#link-to "index.post" post}} <i class="fa fa-pencil-square-o"></i> Edit{{/link-to}}
+                                    {{#link-to "index.post.edit" post tagName="button" class="btn btn-sm btn-primary"}} <i class="fa fa-pencil-square-o"></i> Edit{{/link-to}}
                                  </div>
                              </td>
                          </tr>

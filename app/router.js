@@ -9,7 +9,10 @@ Router.map(function() {
   this.route('login');
   this.route('index', { path: '/' } ,function() {
     this.route('posts', { path: '/posts' });
-    this.route('post', { path: '/post/:post_id' });
+    this.route('post', { path: '/post' } ,function() {
+        this.route('add', { path: '/add' });
+        this.route('edit', { path: '/:post_id' });
+    });
   });
 });
 

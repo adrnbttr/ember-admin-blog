@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
 		save() {
 			var post = this.get('model');
 			post.save();
+			this.transitionToRoute('index.posts');
 		}
 	}
 });
