@@ -16,6 +16,9 @@
                       <li>
                           {{#link-to "index.posts" }}<i class="fa fa-file-text"></i> <span class="sidebar-mini-hide">Posts</span>{{/link-to}}
                       </li>
+                      <li>
+                          {{#link-to "index.tags" }}<i class="fa fa-tag"></i> <span class="sidebar-mini-hide">Tags</span>{{/link-to}}
+                      </li>
                   </ul>
               </div>
           </div>
@@ -28,7 +31,7 @@
           <li class="js-header-search header-search">
               <form class="form-horizontal" action="" method="post">
                   <div class="form-material form-material-primary input-group remove-margin-t remove-margin-b">
-                      <input class="form-control" type="text" id="base-material-text" name="base-material-text" placeholder="Search..">
+                      {{input value=filter class="form-control" id="base-material-text" name="base-material-text" placeholder="Search.."}}
                       <span class="input-group-addon"><i class="si si-magnifier"></i></span>
                   </div>
               </form>

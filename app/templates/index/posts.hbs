@@ -21,17 +21,24 @@
                     <thead>
                         <tr>
                             <th>Title</th>
+                            <th>Tag</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                      {{#each model as |post|}}
+                      {{#each results as |post|}}
                          <tr>
                              <td class="font-w600">{{post.title}}</td>
                              <td>
+                              {{#each post.tags as |tag|}}
+                                <span class="label label-info">{{tag.title}}</span>
+                              {{/each}}
+                             </td>
+                             <td>
                                  <div class="btn-group">
-                                    {{#link-to "index.post.edit" post tagName="button" class="btn btn-sm btn-primary"}} <i class="fa fa-pencil-square-o"></i> Edit{{/link-to}}
-                                 </div>
+                                    {{#link-to "index.post.edit" post.id tagName="button" class="btn btn-sm btn-primary"}} <i class="fa fa-pencil-square-o"></i> Edit{{/link-to}}
+                                    <button {{action "confirmDelete" post}} class="btn btn-sm btn-danger push-10-l" > <i class="fa fa-trash-o"></i> Delete</button>
+                                 </div>  
                              </td>
                          </tr>
                       {{/each}}
@@ -41,3 +48,9 @@
         </div>
     </div>
 </div>
+
+{{modal-confirm-component 
+    showingModal=showingDelete 
+    text=(concat "Can you confirm before deleting post " selectedPost.title ) 
+    onConfirm=(action 'delete' selectedPost)
+}}

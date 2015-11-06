@@ -13,6 +13,12 @@ Router.map(function() {
         this.route('add', { path: '/add' });
         this.route('edit', { path: '/:post_id' });
     });
+    this.route('tags', { path: '/tags' });
+    this.route('tag', { path: '/tag' }, function() {
+      this.route('add', { path: '/add' });
+      this.route('edit', { path: '/:tag_id' });
+    });
+    
   });
 });
 

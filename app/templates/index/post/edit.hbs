@@ -2,7 +2,7 @@
     <div class="row items-push">
         <div class="col-sm-7">
             <h1 class="page-heading">
-                Post <small> {{model.title}}</small>
+                Post <small> {{model.post.title}}</small>
             </h1>
         </div>
         <div class="col-sm-5 text-right hidden-xs">
@@ -34,22 +34,37 @@
                 </div>
                 <div class="block-content">
                     <div class="form-material push-10">
-                        {{input value=model.title class="form-control" id="title"}}
+                        {{input value=model.post.title class="form-control" id="title"}}
                         <label for="title">Title</label>
                     </div>
                     <div class="form-material push-30-t">
-                        {{textarea value=model.content cols="80" rows="6" class="form-control" id="content" }}    
+                        {{textarea value=model.post.content cols="80" rows="6" class="form-control" id="content" }}    
                         <label for="content">Content</label>
                     </div>
                 </div>
             </div>
-            <button {{action "save"}} class="btn btn-sm btn-primary pull-right push-10-l">
+            <div class="block">
+                <div class="block-header bg-gray-lighter">
+                    <h3 class="block-title">Tags</h3>
+                </div>
+                <div class="block-content block-content-full">
+                    {{#each model.post.tags as |tag|}}
+                        <span class="label label-info">
+                            {{tag.title}} 
+                            <a {{action "close" tag}} > <i class="fa fa-times"></i> </a> 
+                        </span>
+                    {{/each}}
+                    {{#each model.tags as |tag|}}
+                        <span class="label {{ if tag in model.post.tags "label-info" "label-success"}}">
+                            {{tag.title}} 
+                            <a {{action "close" tag}} > <i class="fa fa-times"></i> </a> 
+                        </span>
+                    {{/each}}
+                </div>
+            </div>
+            <button {{action "save" model.post}} class="btn btn-sm btn-primary pull-right push-10-l">
                 <i class="fa fa-pencil"></i>
                 Save
-            </button>
-            <button {{action "saveReturn"}} class="btn btn-sm btn-primary pull-right">
-                <i class="fa fa-pencil"></i>
-                Save & Return
             </button>
         </div>    
         <div class="col-lg-6">
@@ -58,7 +73,7 @@
                     <h3 class="block-title"><i class="fa fa-newspaper-o"></i> View</h3>
                 </div>
                 <div class="block-content">
-                    {{mark-down model.content}}
+                    {{mark-down model.post.content}}
                 </div>
             </div>
         </div>

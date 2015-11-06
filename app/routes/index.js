@@ -7,9 +7,5 @@ export default Ember.Route.extend({
       loginController.set('previousTransition', transition);
       this.transitionTo('login');
     }
-  },
-
-  model: function() {
-    return this.store.findAll('post');
   }
 });
