@@ -1,0 +1,23 @@
+<div class="modal fade collapse {{if showingModal 'in' '' }} " id="modal-normal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="block block-themed block-transparent remove-margin-b">
+                <div class="block-header bg-primary-dark">
+                    <ul class="block-options">
+                        <li>
+                            <button {{action "close"}} type="button"><i class="fa fa-close"></i></button>
+                        </li>
+                    </ul>
+                    <h3 class="block-title">Confirmation</h3>
+                </div>
+                <div class="block-content push-50">
+                    {{text}}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-sm btn-default" type="button" {{action "close"}} >Close</button>
+                <button class="btn btn-sm btn-primary" type="button" {{action "confirm"}}><i class="fa fa-check"></i> Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
