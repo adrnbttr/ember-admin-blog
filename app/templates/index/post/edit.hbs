@@ -48,14 +48,8 @@
                     <h3 class="block-title">Tags</h3>
                 </div>
                 <div class="block-content block-content-full">
-                    {{#each model.post.tags as |tag|}}
-                        <span class="label label-info">
-                            {{tag.title}} 
-                            <a {{action "close" tag}} > <i class="fa fa-times"></i> </a> 
-                        </span>
-                    {{/each}}
                     {{#each model.tags as |tag|}}
-                        <span class="label {{ if tag in model.post.tags "label-info" "label-success"}}">
+                        <span class="label {{ if (in-array model.post.tags tag ) "label-info"  "label-success"}} push-10-l">
                             {{tag.title}} 
                             <a {{action "close" tag}} > <i class="fa fa-times"></i> </a> 
                         </span>
