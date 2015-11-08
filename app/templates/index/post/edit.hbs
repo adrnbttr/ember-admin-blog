@@ -48,14 +48,27 @@
                     <h3 class="block-title">Tags</h3>
                 </div>
                 <div class="block-content block-content-full">
-                    {{#each model.tags as |tag|}}
-                        <span class="label {{ if (in-array model.post.tags tag ) "label-info"  "label-success"}} push-10-l">
+                    {{#each tags as |tag|}}
+                        <span class="label label-success push-10-l">
                             {{tag.title}} 
-                            <a {{action "close" tag}} > <i class="fa fa-times"></i> </a> 
+                            <a {{action "deleteTag" tag}} > <i class="fa fa-times"></i> </a> 
                         </span>
                     {{/each}}
                 </div>
             </div>
+            <div class="block">
+                <div class="block-header bg-gray-lighter">
+                    <h3 class="block-title">List of tags</h3>
+                </div>
+                <div class="block-content block-content-full">
+                    {{#each model.tags as |tag|}}
+                        <span class="label label-info push-10-l">
+                            {{tag.title}} 
+                            <a {{action "deleteTag" tag}} > <i class="fa fa-times"></i> </a> 
+                        </span>
+                    {{/each}}
+                </div>
+            </div>            
             <button {{action "save" model.post}} class="btn btn-sm btn-primary pull-right push-10-l">
                 <i class="fa fa-pencil"></i>
                 Save
