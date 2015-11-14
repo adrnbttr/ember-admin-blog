@@ -13932,4 +13932,11 @@ div.tagsinput span.tag a:hover {
   width: 100px;
 }
 
+.background-login {
+  background: url(https://images.unsplash.com/photo-1442120108414-42e7ea50d0b5?ixlib=rb-0.3.5&q=80&fm=jpg&w=1080&fit=max&s=6a9ce7df5abc397f7811f572510aeebb) center; 
+  background-size: cover; 
+  position: relative;
+  height:100vh;
+  width:100%;
+}
 
