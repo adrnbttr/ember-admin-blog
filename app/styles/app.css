@@ -8023,7 +8023,8 @@ a.list-group-item:focus {
 #sidebar {
   /*width: 230px;*/
   width: 280px;
-  background-color: #2c343f;
+  /*background-color: #2c343f;*/
+  background-color: #283744;
 }
 .sidebar-l #sidebar {
   left: 0;
