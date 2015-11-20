@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
 			results = results.filter(function(post){
 		       return post.get('title').toLowerCase().indexOf(filter.toLowerCase()) > -1;
 		    });
-		};
+		}
 
 		return results;
 	})
